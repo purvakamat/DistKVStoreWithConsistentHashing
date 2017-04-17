@@ -44,7 +44,7 @@ build-dirs:
 	mkdir -p $(BUILD)/router $(BUILD)/server $(BUILD)/client 
 
 router: $(PROTOBUF_COMPILED) $(BUILD)/router/router.o
-	$(CC) $(CFLAGS) -o $@ $^ $(LD_FLAGS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LD_FLAGS) -lssl -lcrypto
 
 client: $(PROTOBUF_COMPILED) $(BUILD)/client/client.o
 	$(CC) $(CFLAGS) -o $@ $^ $(LD_FLAGS)
